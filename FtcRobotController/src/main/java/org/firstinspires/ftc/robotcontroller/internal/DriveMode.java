@@ -33,6 +33,7 @@ public class DriveMode extends OpMode {
 
     public void loop(){
 
+        // Forward
         if (gamepad1.left_stick_y >= 0.00001){
             motorRightFront.setDirection(DcMotorSimple.Direction.FORWARD);
             motorLeftFront.setDirection(DcMotorSimple.Direction.FORWARD);
@@ -44,6 +45,7 @@ public class DriveMode extends OpMode {
             motorRightFront.setPower(.5);
         }
 
+        // Backwards
         if (gamepad1.left_stick_y <= 0.00001){
             motorRightFront.setDirection(DcMotorSimple.Direction.REVERSE);
             motorLeftFront.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -54,6 +56,11 @@ public class DriveMode extends OpMode {
             motorLeftFront.setPower(.5);
             motorRightFront.setPower(.5);
         }
+
+        // Left
+
+
+        // Right
 
     }
 }
