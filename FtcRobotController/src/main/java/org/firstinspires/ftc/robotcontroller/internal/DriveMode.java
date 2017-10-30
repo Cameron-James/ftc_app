@@ -46,7 +46,7 @@ public class DriveMode extends OpMode {
         }
 
         // Backwards
-        if (gamepad1.left_stick_y <= 0.00001){
+        if (gamepad1.left_stick_y <= -0.00001){
             motorRightFront.setDirection(DcMotorSimple.Direction.REVERSE);
             motorLeftFront.setDirection(DcMotorSimple.Direction.REVERSE);
             motorRightBack.setDirection(DcMotorSimple.Direction.FORWARD);
@@ -58,9 +58,26 @@ public class DriveMode extends OpMode {
         }
 
         // Left
+        if (gamepad1.left_stick_x <= -0.00001){
+            motorRightFront.setDirection(DcMotorSimple.Direction.FORWARD);
+            motorLeftFront.setDirection(DcMotorSimple.Direction.REVERSE);
+            motorRightBack.setDirection(DcMotorSimple.Direction.FORWARD);
+            motorLeftBack.setDirection(DcMotorSimple.Direction.REVERSE);
+            motorLeftBack.setPower(.5);
+            motorRightBack.setPower(.5);
+            motorLeftFront.setPower(.5);
+            motorRightFront.setPower(.5);
 
+        }
 
         // Right
-
+        motorRightFront.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorLeftFront.setDirection(DcMotorSimple.Direction.FORWARD);
+        motorRightBack.setDirection(DcMotorSimple.Direction.REVERSE);
+        motorLeftBack.setDirection(DcMotorSimple.Direction.FORWARD);
+        motorLeftBack.setPower(.5);
+        motorRightBack.setPower(.5);
+        motorLeftFront.setPower(.5);
+        motorRightFront.setPower(.5);
     }
 }
