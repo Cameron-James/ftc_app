@@ -101,9 +101,9 @@ public class DriveMode extends OpMode {
 
         // Rotate Right
         if (gamepad1.right_stick_x >= .5){
-            motorLeftFront.setDirection(DcMotorSimple.Direction.FORWARD);
+            motorLeftFront.setDirection(DcMotorSimple.Direction.REVERSE);
             motorLeftBack.setDirection(DcMotorSimple.Direction.REVERSE);
-            motorRightFront.setDirection(DcMotorSimple.Direction.FORWARD);
+            motorRightFront.setDirection(DcMotorSimple.Direction.REVERSE);
             motorRightBack.setDirection(DcMotorSimple.Direction.REVERSE);
             motorLeftBack.setPower(.5);
             motorRightBack.setPower(.5);
@@ -114,9 +114,9 @@ public class DriveMode extends OpMode {
 
         // Rotate Left
         if (gamepad1.right_stick_x <= -.5){
-            motorLeftFront.setDirection(DcMotorSimple.Direction.REVERSE);
+            motorLeftFront.setDirection(DcMotorSimple.Direction.FORWARD);
             motorLeftBack.setDirection(DcMotorSimple.Direction.FORWARD);
-            motorRightFront.setDirection(DcMotorSimple.Direction.REVERSE);
+            motorRightFront.setDirection(DcMotorSimple.Direction.FORWARD);
             motorRightBack.setDirection(DcMotorSimple.Direction.FORWARD);
             motorLeftBack.setPower(.5);
             motorRightBack.setPower(.5);
