@@ -23,10 +23,10 @@ public class DriveMode extends OpMode {
         gamepad2.reset();
         motorLeftBack = hardwareMap.dcMotor.get("mLB");
         motorLeftFront = hardwareMap.dcMotor.get("mLF");
-        //motorLift = hardwareMap.dcMotor.get("mL");
+        motorLift = hardwareMap.dcMotor.get("mL");
         motorRightBack = hardwareMap.dcMotor.get("mRB");
         motorRightFront = hardwareMap.dcMotor.get("mRF");
-       // servoClaw = hardwareMap.servo.get("sC");
+        servoClaw = hardwareMap.servo.get("sC");
        // servoFlipper = hardwareMap.servo.get("sF");
 
     }
@@ -148,6 +148,22 @@ public class DriveMode extends OpMode {
             motorRightBack.setPower(0);
             motorLeftFront.setPower(0);
             motorRightFront.setPower(0.5);
+        }
+        // Down
+        if (gamepad2.a){
+            motorLift.setDirection(DcMotorSimple.Direction.FORWARD);
+            motorLift.setPower(.5);
+        }
+        if (gamepad2.b){
+            motorLift.setDirection(DcMotorSimple.Direction.REVERSE);
+            motorLift.setPower(.5);
+        }
+        //up
+        if (gamepad2.left_bumper){
+            servoClaw.setPosition(1);
+        }
+        if (gamepad2.right_bumper){
+            servoClaw.setPosition(-1);
         }
     }
 
