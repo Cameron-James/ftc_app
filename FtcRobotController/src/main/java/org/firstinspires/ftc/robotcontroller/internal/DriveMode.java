@@ -1,10 +1,13 @@
 package org.firstinspires.ftc.robotcontroller.internal;
 
+import android.hardware.Sensor;
+
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.Servo;
+import com.qualcomm.robotcore.hardware.TouchSensor;
 
 /**
  * Created by CJames on 10/25/17.
@@ -18,6 +21,7 @@ public class DriveMode extends OpMode {
     DcMotor motorLift;
     Servo servoClaw;
     Servo servoFlipper;
+    TouchSensor sensorLift;
     public void init(){
         gamepad1.reset();
         gamepad2.reset();
@@ -27,7 +31,9 @@ public class DriveMode extends OpMode {
         motorRightBack = hardwareMap.dcMotor.get("mRB");
         motorRightFront = hardwareMap.dcMotor.get("mRF");
         servoClaw = hardwareMap.servo.get("sC");
-       // servoFlipper = hardwareMap.servo.get("sF");
+        //servoFlipper = hardwareMap.servo.get("sF");
+       // sensorLift = hardwareMap.touchSensor.get("sL");
+
 
     }
 
@@ -154,11 +160,14 @@ public class DriveMode extends OpMode {
             motorLift.setDirection(DcMotorSimple.Direction.FORWARD);
             motorLift.setPower(.5);
         }
-        if (gamepad2.b){
+        else if (gamepad2.b /*&& !sensorLift.isPressed()*/){
             motorLift.setDirection(DcMotorSimple.Direction.REVERSE);
             motorLift.setPower(.5);
         }
-        //up
+        else {
+            motorLift.setPower(0);
+        }
+
         if (gamepad2.left_bumper){
             servoClaw.setPosition(1);
         }
