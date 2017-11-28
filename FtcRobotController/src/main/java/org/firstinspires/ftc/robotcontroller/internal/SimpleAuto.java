@@ -18,12 +18,17 @@ public class SimpleAuto extends LinearOpMode {
     DcMotor motorRightBack;
     int mRFPosition = motorRightFront.getCurrentPosition();
     // IMPORTANT 1440 POSITIONS IN ROTATION
+    // ONE ROTATION IS 12.5663706144 INCHES
 
 
     public void runOpMode(){
         telemetry.addData("encoder position", mRFPosition);
         if(mRFPosition <= 1440){
-
+            right();
+        }
+        motorRightFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        if(mRFPosition <= 480){
+            backwards();
         }
     }
 
