@@ -32,7 +32,7 @@ public class DriveMode extends OpMode {
         motorRightFront = hardwareMap.dcMotor.get("mRF");
         servoClaw = hardwareMap.servo.get("sC");
         //servoFlipper = hardwareMap.servo.get("sF");
-       // sensorLift = hardwareMap.touchSensor.get("sL");
+       sensorLift = hardwareMap.touchSensor.get("sL");
 
 
     }
@@ -160,7 +160,7 @@ public class DriveMode extends OpMode {
             motorLift.setDirection(DcMotorSimple.Direction.FORWARD);
             motorLift.setPower(.5);
         }
-        else if (gamepad2.b /*&& !sensorLift.isPressed()*/){
+        else if (gamepad2.b && !sensorLift.isPressed()){
             motorLift.setDirection(DcMotorSimple.Direction.REVERSE);
             motorLift.setPower(.5);
         }
@@ -168,10 +168,10 @@ public class DriveMode extends OpMode {
             motorLift.setPower(0);
         }
 
-        if (gamepad2.left_bumper){
+        while (gamepad2.left_bumper){
             servoClaw.setPosition(1);
         }
-        if (gamepad2.right_bumper){
+        while (gamepad2.right_bumper){
             servoClaw.setPosition(-1);
         }
     }
