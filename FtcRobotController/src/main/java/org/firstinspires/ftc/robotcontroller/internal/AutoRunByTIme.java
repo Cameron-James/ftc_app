@@ -2,26 +2,18 @@ package org.firstinspires.ftc.robotcontroller.internal;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
-import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 
-
 /**
- * Created by CJames on 11/28/17.
+ * Created by CJames on 12/6/17.
  */
-@Autonomous (name = "simpleAuto")
-
-public class SimpleAuto extends LinearOpMode {
+@Autonomous
+public class AutoRunByTIme extends LinearOpMode {
     DcMotor motorLeftFront;
     DcMotor motorLeftBack;
     DcMotor motorRightFront;
     DcMotor motorRightBack;
-    int mRFPosition;
-
-    // IMPORTANT 1440 POSITIONS IN ROTATION
-    // ONE ROTATION IS 12.5663706144 INCHES
-
 
     public void runOpMode(){
         motorLeftBack = hardwareMap.dcMotor.get("mLB");
@@ -29,18 +21,12 @@ public class SimpleAuto extends LinearOpMode {
         motorRightBack = hardwareMap.dcMotor.get("mRB");
         motorRightFront = hardwareMap.dcMotor.get("mRF");
         waitForStart();
-        motorRightFront.setTargetPosition(2800);
-        motorRightFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        telemetry.addData("encoder position", mRFPosition);
-            right();
-       // motorRightFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        right();
+        backwards();
 
-      //  motorRightFront.setTargetPosition(480);
-      //  motorRightFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        //    backwards();
     }
 
-    private void right(){
+    public void right(){
         motorRightFront.setDirection(DcMotorSimple.Direction.REVERSE);
         motorLeftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         motorRightBack.setDirection(DcMotorSimple.Direction.FORWARD);
@@ -49,10 +35,10 @@ public class SimpleAuto extends LinearOpMode {
         motorRightBack.setPower(.5);
         motorLeftFront.setPower(.5);
         motorRightFront.setPower(.5);
-
+        sleep(500);
     }
 
-    private void backwards(){
+    public void backwards(){
         motorRightFront.setDirection(DcMotorSimple.Direction.FORWARD);
         motorLeftFront.setDirection(DcMotorSimple.Direction.REVERSE);
         motorRightBack.setDirection(DcMotorSimple.Direction.FORWARD);
@@ -61,7 +47,6 @@ public class SimpleAuto extends LinearOpMode {
         motorRightBack.setPower(.5);
         motorLeftFront.setPower(.5);
         motorRightFront.setPower(.5);
+        sleep(500);
     }
-
-
 }

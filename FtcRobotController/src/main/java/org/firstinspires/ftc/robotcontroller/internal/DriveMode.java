@@ -160,7 +160,7 @@ public class DriveMode extends OpMode {
             motorLift.setDirection(DcMotorSimple.Direction.FORWARD);
             motorLift.setPower(.5);
         }
-        else if (gamepad2.b && !sensorLift.isPressed()){
+        else if (gamepad2.b){
             motorLift.setDirection(DcMotorSimple.Direction.REVERSE);
             motorLift.setPower(.5);
         }

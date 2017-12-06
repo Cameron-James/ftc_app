@@ -9,7 +9,7 @@ import com.qualcomm.robotcore.hardware.DcMotorSimple;
 /**
  * Created by CJames on 11/28/17.
  */
-@Autonomous (name = "simpleAuto")
+@Autonomous (name = "simpleAutoPlusColor")
 public class SimpleAutoPlusColor extends LinearOpMode {
     DcMotor motorLeftFront;
     DcMotor motorLeftBack;
