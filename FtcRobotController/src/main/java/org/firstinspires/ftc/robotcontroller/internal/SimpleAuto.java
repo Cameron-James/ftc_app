@@ -48,6 +48,7 @@ public class SimpleAuto extends LinearOpMode {
         motorRightBack.setPower(.5);
         motorLeftFront.setPower(.5);
         motorRightFront.setPower(.5);
+        sleep(500);
 
     }
 
@@ -60,6 +61,7 @@ public class SimpleAuto extends LinearOpMode {
         motorRightBack.setPower(.5);
         motorLeftFront.setPower(.5);
         motorRightFront.setPower(.5);
+        sleep(500);
     }
 
 
