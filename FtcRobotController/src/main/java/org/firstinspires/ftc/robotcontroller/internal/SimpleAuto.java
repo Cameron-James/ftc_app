@@ -29,15 +29,14 @@ public class SimpleAuto extends LinearOpMode {
         motorRightBack = hardwareMap.dcMotor.get("mRB");
         motorRightFront = hardwareMap.dcMotor.get("mRF");
         waitForStart();
-        motorRightFront.setTargetPosition(2800);
-        motorRightFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        motorRightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         telemetry.addData("encoder position", mRFPosition);
+        if (motorRightFront.getCurrentPosition() <= 1400)
             right();
-       // motorRightFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-
-      //  motorRightFront.setTargetPosition(480);
-      //  motorRightFront.setMode(DcMotor.RunMode.RUN_TO_POSITION);
-        //    backwards();
+       motorRightFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        motorRightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        if (motorRightFront.getCurrentPosition() <= 480)
+          backwards();
     }
 
     private void right(){
