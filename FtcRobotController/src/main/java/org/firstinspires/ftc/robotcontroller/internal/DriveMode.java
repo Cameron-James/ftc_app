@@ -258,11 +258,26 @@ public class DriveMode extends OpMode {
             motorRightFront.setPower(1);
         }
         // Down
-        if (gamepad2.a){
+        if (gamepad2.a && gamepad2.right_trigger >= 1){
+            motorLift.setDirection(DcMotorSimple.Direction.FORWARD);
+            motorLift.setPower(.5);
+
+        }
+        else if (gamepad2.a) {
             motorLift.setDirection(DcMotorSimple.Direction.FORWARD);
             motorLift.setPower(.5);
             servoClaw.setPosition(.5);
         }
+        else{
+            motorLift.setPower(0);
+        }
+
+        if (gamepad2.b && gamepad2.right_trigger >= 1){
+            motorLift.setDirection(DcMotorSimple.Direction.REVERSE);
+            motorLift.setPower(.5);
+
+        }
+
         else if (gamepad2.b){
             motorLift.setDirection(DcMotorSimple.Direction.REVERSE);
             motorLift.setPower(.5);
