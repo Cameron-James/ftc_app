@@ -17,7 +17,6 @@ public class SimpleAuto extends LinearOpMode {
     DcMotor motorLeftBack;
     DcMotor motorRightFront;
     DcMotor motorRightBack;
-    int mRFPosition;
 
     // IMPORTANT 1440 POSITIONS IN ROTATION
     // ONE ROTATION IS 12.5663706144 INCHES
@@ -28,18 +27,14 @@ public class SimpleAuto extends LinearOpMode {
         motorRightBack = hardwareMap.dcMotor.get("mRB");
         motorRightFront = hardwareMap.dcMotor.get("mRF");
         waitForStart();
+        motorRightFront.setMode(DcMotor.RunMode.RESET_ENCODERS);
         motorRightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        telemetry.addData("encoder position", mRFPosition);
-        if (motorRightFront.getCurrentPosition() <= 1400) {
+        telemetry.addData("encoder position", motorRightFront.getCurrentPosition());
+        if (motorRightFront.getCurrentPosition() <= 850) {
             right();
         }
-            sleep(500);
-       motorRightFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        motorRightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        if (motorRightFront.getCurrentPosition() <= 480) {
-            backwards();
+        sleep(890);
         }
-    }
 
     private void right(){
         motorRightFront.setDirection(DcMotorSimple.Direction.REVERSE);
