@@ -287,10 +287,10 @@ public class DriveMode extends OpMode {
             motorLift.setPower(0);
         }
 
-        while (gamepad2.left_bumper){
+        if (gamepad2.left_bumper){
             servoClaw.setPosition(.75);
         }
-        while (gamepad2.right_bumper){
+        if (gamepad2.right_bumper){
             servoClaw.setPosition(.5);
         }
     }
