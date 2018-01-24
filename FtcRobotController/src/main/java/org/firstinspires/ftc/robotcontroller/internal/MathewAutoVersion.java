@@ -30,21 +30,23 @@ public class MathewAutoVersion extends LinearOpMode {
         motorRightBack.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         motorRightFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
 
-        clawControlUp(5000);
+        //clawControlUp(5000);
 
         right();
 
-        rotateRight();
+       // rotateRight();
 
-        clawControlDown(1000); //IMPORTANT: MAKE A DOWN VERSION AND PUT IT HERE
+        //clawControlDown(1000); //IMPORTANT: MAKE A DOWN VERSION AND PUT IT HERE
 
-        forward();
+        //forward();
 
-        backward();
+        //backward();
 
 
 
     }
+
+
 
     public void right(){
         motorRightFront.setDirection(DcMotorSimple.Direction.REVERSE);
@@ -53,7 +55,7 @@ public class MathewAutoVersion extends LinearOpMode {
         motorLeftBack.setDirection(DcMotorSimple.Direction.FORWARD);
         motorLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         motorLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        if(motorLeftFront.getCurrentPosition() <= 7000) {
+        while(motorLeftFront.getCurrentPosition() <= 7000) {
             motorLeftBack.setPower(.5);
             motorRightBack.setPower(.5);
             motorLeftFront.setPower(.5);
@@ -69,7 +71,7 @@ public class MathewAutoVersion extends LinearOpMode {
         motorRightBack.setDirection(DcMotorSimple.Direction.REVERSE);
         motorLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         motorLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        if(motorLeftFront.getCurrentPosition() <= 700) {
+        while(motorLeftFront.getCurrentPosition() <= 700) {
             motorLeftBack.setPower(.5);
             motorRightBack.setPower(.5);
             motorLeftFront.setPower(.5);
@@ -84,7 +86,7 @@ public class MathewAutoVersion extends LinearOpMode {
         motorLeftBack.setDirection(DcMotorSimple.Direction.FORWARD);
         motorLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         motorLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        if(motorLeftFront.getCurrentPosition() < 1000) {
+        while(motorLeftFront.getCurrentPosition() < 1000) {
             motorLeftBack.setPower(.5);
             motorRightBack.setPower(.5);
             motorLeftFront.setPower(.5);
@@ -99,7 +101,7 @@ public class MathewAutoVersion extends LinearOpMode {
         motorLeftBack.setDirection(DcMotorSimple.Direction.REVERSE);
         motorLeftFront.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
         motorLeftFront.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        if(motorLeftFront.getCurrentPosition() < 500) {
+        while(motorLeftFront.getCurrentPosition() < 500) {
             motorLeftBack.setPower(.5);
             motorRightBack.setPower(.5);
             motorLeftFront.setPower(.5);

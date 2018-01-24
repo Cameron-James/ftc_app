@@ -288,10 +288,10 @@ public class DriveMode extends OpMode {
         }
 
         if (gamepad2.left_bumper){
-            servoClaw.setPosition(.75);
+            servoClaw.setPosition(.60);
         }
         if (gamepad2.right_bumper){
-            servoClaw.setPosition(.5);
+            servoClaw.setPosition(.5); // change this one if you need more space
         }
     }
 
